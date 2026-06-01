@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wdWQE3JHlXI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\2 семестр\\ArchiverApp\\ArchiverApp.Blazor\\ArchiverApp.Blazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.8\\microsoft.aspnetcore.app.internal.assets.10.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ArchiverApp.Blazor/ArchiverApp.Blazor.csproj" />
+  <Project Path="ArchiverApp.Domain/ArchiverApp.Domain.csproj" />
+</Solution>
