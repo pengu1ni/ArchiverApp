@@ -1,0 +1,12 @@
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\bin\Debug\net10.0\ArchiverApp.Domain.deps.json
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\bin\Debug\net10.0\ArchiverApp.Domain.dll
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\bin\Debug\net10.0\ArchiverApp.Domain.pdb
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.AssemblyInfo.cs
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.sourcelink.json
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.dll
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\refint\ArchiverApp.Domain.dll
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ArchiverApp.Domain.pdb
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Domain\obj\Debug\net10.0\ref\ArchiverApp.Domain.dll
