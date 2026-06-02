@@ -30,7 +30,7 @@ public class ArchivedFile
     public string FullName => $"{_name}{_extension}";
     public long OriginalSize => _originalSize;
     public long ProcessedSize => _compressedSize;
-    public bool isCompressed => _isCompressed;
+    public bool IsCompressed => _isCompressed;
     public DateTime AddedAt => _addedAt;
 
     // --- compression ratio (%) ---
@@ -44,6 +44,9 @@ public class ArchivedFile
             return Math.Round((1.0 - (double)_compressedSize / _originalSize) * 100, 2);
         }
     }
+
+    internal byte[] GetOriginalContent() => (byte[])_originalContent.Clone();
+    internal byte[] GetProcessedContent() => (byte[])_processedContent.Clone();
 
     // --- writing compression result in file ---
     internal void ApplyCompression(byte[] compressedContent)
