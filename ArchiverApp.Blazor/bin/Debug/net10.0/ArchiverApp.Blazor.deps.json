@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ArchiverApp.Blazor/1.0.0": {
+        "dependencies": {
+          "ArchiverApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ArchiverApp.Blazor.dll": {}
+        }
+      },
+      "ArchiverApp.Domain/1.0.0": {
+        "runtime": {
+          "ArchiverApp.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ArchiverApp.Blazor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ArchiverApp.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

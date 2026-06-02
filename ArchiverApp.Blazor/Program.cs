@@ -1,4 +1,4 @@
-using ArchiiverApp.Blazor.Components;
+using ArchiverApp.Blazor.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
