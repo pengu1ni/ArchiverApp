@@ -1,0 +1,82 @@
+@* Таблиця файлів у поточному архіві *@
+@using ArchiverApp.Domain.Models
+
+<div class="card">
+    <div class="card-title">🗂 Файли в архіві</div>
+
+    @if (!Files.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-state-icon">📂</div>
+            <div>Архів порожній — додайте файли нижче</div>
+        </div>
+    }
+    else
+    {
+        <table class="file-table">
+            <thead>
+                <tr>
+                    <th>Назва файлу</th>
+                    <th>Оригінал</th>
+                    <th>Після обробки</th>
+                    <th>Стиснення</th>
+                    <th>Стан</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var file in Files)
+                {
+                    <tr>
+                        <td>📄 @file.FullName</td>
+                        <td>@FormatSize(file.OriginalSize)</td>
+                        <td>@FormatSize(file.ProcessedSize)</td>
+                        <td>
+                            @if (file.IsCompressed)
+                            {
+                                <span style="color:#2e7d32; font-weight:600">
+                                    -@file.CompressionRatio%
+                                </span>
+                            }
+                            else
+                            {
+                                <span style="color:#999">—</span>
+                            }
+                        </td>
+                        <td>
+                            @if (file.IsCompressed)
+                            {
+                                <span class="badge badge-compressed">Стиснено</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-new">Оригінал</span>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn btn-danger"
+                                    style="padding:0.25rem 0.6rem; font-size:0.8rem"
+                                    disabled="@IsProcessing"
+                                    @onclick="() => OnRemove.InvokeAsync(file.FullName)">
+                                🗑
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    [Parameter] public IEnumerable<ArchivedFile> Files { get; set; } = [];
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback<string> OnRemove { get; set; }
+
+    private string FormatSize(long bytes) => bytes switch
+    {
+        < 1024        => $"{bytes} Б",
+        < 1024 * 1024 => $"{bytes / 1024.0:F1} КБ",
+        _             => $"{bytes / (1024.0 * 1024):F1} МБ"
+    };
+}

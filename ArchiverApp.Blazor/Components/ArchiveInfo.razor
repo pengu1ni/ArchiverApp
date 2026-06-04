@@ -1,0 +1,75 @@
+@* Картка інформації про поточний архів та статистика *@
+@using ArchiverApp.Domain.Models
+@using ArchiverApp.Domain.Enums
+
+@if (Archive is not null)
+{
+    <div class="card">
+        <div class="card-title">📦 Інформація про архів</div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">@Archive.Name</div>
+                <div class="stat-label">Назва архіву</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">@Archive.FileCount</div>
+                <div class="stat-label">Файлів</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">@FormatSize(Archive.TotalOriginalSize)</div>
+                <div class="stat-label">Оригінальний розмір</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">@FormatSize(Archive.TotalProcessedSize)</div>
+                <div class="stat-label">Розмір після обробки</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">@Archive.CompressionType</div>
+                <div class="stat-label">Алгоритм</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">
+                    <span class="badge @GetStatusClass(Archive.Status)">
+                        @GetStatusLabel(Archive.Status)
+                    </span>
+                </div>
+                <div class="stat-label">Статус</div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public Archive? Archive { get; set; }
+
+    private string FormatSize(long bytes) => bytes switch
+    {
+        < 1024                => $"{bytes} Б",
+        < 1024 * 1024         => $"{bytes / 1024.0:F1} КБ",
+        _                     => $"{bytes / (1024.0 * 1024):F1} МБ"
+    };
+
+    private string GetStatusClass(ArchiveStatus status) => status switch
+    {
+        ArchiveStatus.New          => "badge-new",
+        ArchiveStatus.Compressed   => "badge-compressed",
+        ArchiveStatus.Decompressed => "badge-decompressed",
+        ArchiveStatus.Error        => "badge-error",
+        _                          => "badge-new"
+    };
+
+    private string GetStatusLabel(ArchiveStatus status) => status switch
+    {
+        ArchiveStatus.New          => "Новий",
+        ArchiveStatus.Compressed   => "Стиснено",
+        ArchiveStatus.Decompressed => "Розпаковано",
+        ArchiveStatus.Error        => "Помилка",
+        _                          => "—"
+    };
+}

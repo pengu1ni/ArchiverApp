@@ -1,0 +1,82 @@
+@* Форма додавання нового файлу до архіву *@
+@using ArchiverApp.Domain.Enums
+
+<div class="card">
+    <div class="card-title">➕ Додати файл</div>
+
+    @if (!string.IsNullOrEmpty(_error))
+    {
+        <div class="alert-error">⚠️ @_error</div>
+    }
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Ім'я файлу</label>
+            <input class="form-control"
+                   placeholder="наприклад: document"
+                   @bind="_fileName" />
+        </div>
+
+        <div class="form-group" style="max-width:110px">
+            <label>Розширення</label>
+            <select class="form-control" @bind="_extension">
+                <option>.txt</option>
+                <option>.csv</option>
+                <option>.json</option>
+                <option>.xml</option>
+                <option>.log</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Вміст файлу</label>
+            <input class="form-control"
+                   placeholder="введіть текст..."
+                   @bind="_content" />
+        </div>
+
+        <div class="form-group" style="max-width: fit-content">
+            <label>&nbsp;</label>
+            <button class="btn btn-primary"
+                    disabled="@IsProcessing"
+                    @onclick="HandleAdd">
+                Додати
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public bool IsProcessing { get; set; }
+    [Parameter] public EventCallback<(string Name, string Ext, byte[] Content)> OnAdd { get; set; }
+
+    private string _fileName  = string.Empty;
+    private string _extension = ".txt";
+    private string _content   = string.Empty;
+    private string _error     = string.Empty;
+
+    private async Task HandleAdd()
+    {
+        _error = string.Empty;
+
+        // --- validation ---
+        if (string.IsNullOrWhiteSpace(_fileName))
+        {
+            _error = "Введіть ім'я файлу.";
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(_content))
+        {
+            _error = "Вміст файлу не може бути порожнім.";
+            return;
+        }
+
+        var bytes = System.Text.Encoding.UTF8.GetBytes(_content);
+        await OnAdd.InvokeAsync((_fileName.Trim(), _extension, bytes));
+
+        // --- clearing form ---
+        _fileName = string.Empty;
+        _content  = string.Empty;
+    }
+}

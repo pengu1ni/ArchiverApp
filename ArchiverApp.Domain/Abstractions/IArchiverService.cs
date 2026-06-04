@@ -9,6 +9,7 @@ public interface IArchiverService
     bool RemoveFile(string fullName);
     Task CompressAsync(Action<Events.ArchiveProgressEvent>? onProgress = null); 
     Task DecompressAsync(Action<Events.ArchiveProgressEvent>? onProgress = null); 
+    Archive? CurrentArchive { get; }
     void ClearArchive();
 }
 

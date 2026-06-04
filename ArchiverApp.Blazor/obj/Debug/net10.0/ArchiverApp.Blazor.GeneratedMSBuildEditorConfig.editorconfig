@@ -23,8 +23,20 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/AddFileForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBZGRGaWxlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/ArchiveInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcmNoaXZlSW5mby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/FileTable.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaWxlVGFibGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/Counter.razor]
@@ -45,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/ProgressPanel.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmVzc1BhbmVsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Routes.razor]

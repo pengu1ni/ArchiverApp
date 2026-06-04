@@ -1,0 +1,28 @@
+@* Панель прогресу операції стиснення/розпакування *@
+
+@if (IsVisible)
+{
+    <div class="card">
+        <div class="card-title">⏳ @Title</div>
+
+        <div class="progress-wrap">
+            <div class="progress-bar" style="width: @(Percent)%">
+                @if (Percent > 10)
+                {
+                    <span>@(Percent)%</span>
+                }
+            </div>
+        </div>
+
+        <p style="font-size:0.88rem; color:#555; margin-top:0.5rem">
+            @Message
+        </p>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public string Title { get; set; } = "Обробка...";
+    [Parameter] public int Percent { get; set; }
+    [Parameter] public string Message { get; set; } = string.Empty;
+}

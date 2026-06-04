@@ -1,7 +1,222 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@using ArchiverApp.Domain.Abstractions
+@using ArchiverApp.Domain.Enums
+@using ArchiverApp.Domain.Events
+@using ArchiverApp.Blazor.Components
+@inject IArchiverService ArchiverService
 
-<PageTitle>Home</PageTitle>
+<div class="archiver-container">
 
-<h1>Hello, world!</h1>
+    <h2 style="margin-bottom:1.5rem; color:#222">
+        Симулятор архіватора
+    </h2>
 
-Welcome to your new app.
+    @* --- creation archive form --- *@
+    @if (ArchiverService.CurrentArchive is null)
+    {
+        <div class="card">
+            <div class="card-title">📁 Створити новий архів</div>
+
+            @if (!string.IsNullOrEmpty(_createError))
+            {
+                <div class="alert-error">⚠️ @_createError</div>
+            }
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Назва архіву</label>
+                    <input class="form-control"
+                           placeholder="наприклад: мій_архів"
+                           @bind="_archiveName" />
+                </div>
+
+                <div class="form-group" style="max-width:180px">
+                    <label>Алгоритм стиснення</label>
+                    <select class="form-control" @bind="_selectedType">
+                        @foreach (var type in Enum.GetValues<CompressionType>())
+                        {
+                            <option value="@type">@GetAlgorithmLabel(type)</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group" style="max-width: fit-content">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-success" @onclick="HandleCreateArchive">
+                        Створити архів
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        @* --- about archive --- *@
+        <ArchiveInfo Archive="ArchiverService.CurrentArchive" />
+
+        @* --- archive progress --- *@
+        <ProgressPanel IsVisible="_isProcessing"
+                       Title="_progressTitle"
+                       Percent="_progressPercent"
+                       Message="_progressMessage" />
+
+        @* --- file table --- *@
+        <FileTable Files="ArchiverService.CurrentArchive.Files"
+                   IsProcessing="_isProcessing"
+                   OnRemove="HandleRemoveFile" />
+
+        @* --- file adding form --- *@
+        <AddFileForm IsProcessing="_isProcessing"
+                     OnAdd="HandleAddFile" />
+
+        @* --- button --- *@
+        <div class="card">
+            <div class="card-title">⚙️ Операції</div>
+            <div class="form-row">
+                <button class="btn btn-primary"
+                        disabled="@(_isProcessing || ArchiverService.CurrentArchive.FileCount == 0)"
+                        @onclick="HandleCompress">
+                    🗜 Стиснути
+                </button>
+
+                <button class="btn btn-warning"
+                        disabled="@(_isProcessing || ArchiverService.CurrentArchive.Status != ArchiveStatus.Compressed)"
+                        @onclick="HandleDecompress">
+                    📂 Розпакувати
+                </button>
+
+                <button class="btn btn-secondary"
+                        disabled="@_isProcessing"
+                        @onclick="HandleClear">
+                    🗑 Очистити архів
+                </button>
+            </div>
+        </div>
+
+        @* --- error message --- *@
+        @if (!string.IsNullOrEmpty(_operationError))
+        {
+            <div class="alert-error">⚠️ @_operationError</div>
+        }
+    }
+
+</div>
+
+@code {
+    // --- form creating status ---
+    private string          _archiveName   = string.Empty;
+    private CompressionType _selectedType  = CompressionType.Zip;
+    private string          _createError   = string.Empty;
+
+    // --- progress status ---
+    private bool   _isProcessing    = false;
+    private int    _progressPercent = 0;
+    private string _progressTitle   = string.Empty;
+    private string _progressMessage = string.Empty;
+    private string _operationError  = string.Empty;
+
+    // --- events handler ---
+
+    private void HandleCreateArchive()
+    {
+        _createError = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(_archiveName))
+        {
+            _createError = "Введіть назву архіву.";
+            return;
+        }
+
+        ArchiverService.CreateArchive(_archiveName.Trim(), _selectedType);
+    }
+
+    private void HandleAddFile((string Name, string Ext, byte[] Content) args)
+    {
+        _operationError = string.Empty;
+        try
+        {
+            ArchiverService.AddFile(args.Name, args.Ext, args.Content);
+        }
+        catch (Exception ex)
+        {
+            _operationError = ex.Message;
+        }
+    }
+
+    private void HandleRemoveFile(string fullName)
+    {
+        _operationError = string.Empty;
+        ArchiverService.RemoveFile(fullName);
+    }
+
+    private async Task HandleCompress()
+    {
+        _operationError = string.Empty;
+        _progressTitle  = "Стиснення файлів...";
+        _isProcessing   = true;
+
+        try
+        {
+            await ArchiverService.CompressAsync(OnProgress);
+        }
+        catch (Exception ex)
+        {
+            _operationError = ex.Message;
+        }
+        finally
+        {
+            _isProcessing    = false;
+            _progressPercent = 0;
+            _progressMessage = string.Empty;
+        }
+    }
+
+    private async Task HandleDecompress()
+    {
+        _operationError = string.Empty;
+        _progressTitle  = "Розпакування файлів...";
+        _isProcessing   = true;
+
+        try
+        {
+            await ArchiverService.DecompressAsync(OnProgress);
+        }
+        catch (Exception ex)
+        {
+            _operationError = ex.Message;
+        }
+        finally
+        {
+            _isProcessing    = false;
+            _progressPercent = 0;
+            _progressMessage = string.Empty;
+        }
+    }
+
+    private void HandleClear()
+    {
+        _operationError  = string.Empty;
+        _archiveName     = string.Empty;
+        ArchiverService.ClearArchive();
+    }
+
+    // --- progress callback ---
+
+    private void OnProgress(ArchiveProgressEvent e)
+    {
+        _progressPercent = e.ProgressPercentage;
+        _progressMessage = e.Message;
+        InvokeAsync(StateHasChanged);
+    }
+
+    // --- helper methods ---
+
+    private string GetAlgorithmLabel(CompressionType type) => type switch
+    {
+        CompressionType.Store => "Store (без стиснення)",
+        CompressionType.Zip   => "ZIP (Deflate)",
+        CompressionType.Rar   => "RAR (GZip)",
+        _                     => type.ToString()
+    };
+}
