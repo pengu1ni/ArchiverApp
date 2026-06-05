@@ -11,12 +11,20 @@ public class Archive
     private ArchiveStatus _status;
     private DateTime _createdAt;
     private DateTime? _lastModifiedAt;
+    private const int MinNameLength = 2;
+    private const int MaxNameLength = 8;
 
     // --- constructor ---
     public Archive(string name, CompressionType compressionType = CompressionType.Zip)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Назва архіву не може бути порожньою!", nameof(name));
+
+        if (name.Trim().Length < MinNameLength)
+            throw new ArgumentException($"Назва архіву має містити щонайменше {MinNameLength} символи.", nameof(name));
+
+        if (name.Trim().Length > MaxNameLength)
+            throw new ArgumentException($"Назва архіву не може перевищувати {MaxNameLength} символів.", nameof(name));
 
         _name            = name.Trim();
         _files           = new List<ArchivedFile>();

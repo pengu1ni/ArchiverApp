@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchiverApp.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a020e63b3cd9c98cde35784185c852910e4b5915")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1c01465a765897672ad88e1a033b939dae18268")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchiverApp.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchiverApp.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

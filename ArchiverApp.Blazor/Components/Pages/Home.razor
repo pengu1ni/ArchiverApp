@@ -40,8 +40,9 @@
                 <div class="form-group">
                     <label>Назва архіву</label>
                     <input class="form-control"
-                           placeholder="наприклад: мій_архів"
-                           @bind="_archiveName" />
+                        placeholder="наприклад: мій_архів"
+                        maxlength="@MaxArchiveNameLength"
+                        @bind="_archiveName" />
                 </div>
 
                 <div class="form-group" style="max-width:200px">
@@ -174,6 +175,9 @@
 
     // --- handlers ---
 
+    private const int MinArchiveNameLength = 2;
+    private const int MaxArchiveNameLength = 8;
+
     private void HandleCreateArchive()
     {
         _createError = string.Empty;
@@ -184,9 +188,15 @@
             return;
         }
 
-        if (_archiveName.Length < 2)
+        if (_archiveName.Trim().Length < MinArchiveNameLength)
         {
-            _createError = "Назва архіву має містити щонайменше 2 символи.";
+            _createError = $"Назва має містити щонайменше {MinArchiveNameLength} символи.";
+            return;
+        }
+
+        if (_archiveName.Trim().Length > MaxArchiveNameLength)
+        {
+            _createError = $"Назва не може перевищувати {MaxArchiveNameLength} символів.";
             return;
         }
 

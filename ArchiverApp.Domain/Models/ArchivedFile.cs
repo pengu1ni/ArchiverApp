@@ -1,3 +1,6 @@
+using System.Data;
+using System.Diagnostics.Contracts;
+
 namespace ArchiverApp.Domain.Models;
 
 public class ArchivedFile
@@ -11,10 +14,21 @@ public class ArchivedFile
     private long _compressedSize;
     private bool _isCompressed;
     private DateTime _addedAt;
+    private const int MinNameLength = 2;
+    private const int MaxNameLength = 12;
 
     // --- creating new file ---
     public ArchivedFile(string name, string extension, byte[] content)
     {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Ім'я файлу не може бути порожнім.", nameof(name));
+
+        if (name.Trim().Length < MinNameLength)
+            throw new ArgumentException($"Ім'я файлу має містити щонайменше {MinNameLength} символи.", nameof(name));
+
+        if (name.Trim().Length > MaxNameLength)
+            throw new ArgumentException($"Ім'я файлу не може перевищувати {MaxNameLength} символів.", nameof(name));
+
         _name             = name.Trim();
         _extension        = extension.StartsWith(".") ? extension : $".{extension}";
         _originalContent  = content;

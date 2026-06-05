@@ -34,9 +34,18 @@
                         <td>
                             @if (file.IsCompressed)
                             {
-                                <span style="color:#2e7d32; font-weight:600">
-                                    -@file.CompressionRatio%
-                                </span>
+                                @if (file.CompressionRatio > 0)
+                                {
+                                    <span style="color:#2e7d32; font-weight:600">
+                                        -@file.CompressionRatio%
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span style="color:#ff8c00; font-size:0.82rem">
+                                        файл надто малий
+                                    </span>
+                                }
                             }
                             else
                             {

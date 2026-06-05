@@ -13,8 +13,9 @@
         <div class="form-group">
             <label>Ім'я файлу</label>
             <input class="form-control"
-                   placeholder="наприклад: document"
-                   @bind="_fileName" />
+                placeholder="наприклад: document"
+                maxlength="@MaxNameLength"
+                @bind="_fileName" />
         </div>
 
         <div class="form-group" style="max-width:110px">
@@ -47,6 +48,7 @@
 </div>
 
 @code {
+    private const int MaxNameLength = 50;
     [Parameter] public bool IsProcessing { get; set; }
     [Parameter] public EventCallback<(string Name, string Ext, byte[] Content)> OnAdd { get; set; }
 
@@ -60,9 +62,24 @@
         _error = string.Empty;
 
         // --- validation ---
+        const int MinNameLength = 2;
+        const int MaxNameLength = 12;
+
         if (string.IsNullOrWhiteSpace(_fileName))
         {
             _error = "Введіть ім'я файлу.";
+            return;
+        }
+
+        if (_fileName.Trim().Length < MinNameLength)
+        {
+            _error = $"Ім'я файлу має містити щонайменше {MinNameLength} символи.";
+            return;
+        }
+
+        if (_fileName.Trim().Length > MaxNameLength)
+        {
+            _error = $"Ім'я файлу не може перевищувати {MaxNameLength} символів.";
             return;
         }
 
@@ -75,7 +92,6 @@
         var bytes = System.Text.Encoding.UTF8.GetBytes(_content);
         await OnAdd.InvokeAsync((_fileName.Trim(), _extension, bytes));
 
-        // --- clearing form ---
         _fileName = string.Empty;
         _content  = string.Empty;
     }
