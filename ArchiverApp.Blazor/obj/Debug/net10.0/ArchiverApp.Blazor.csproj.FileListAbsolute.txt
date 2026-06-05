@@ -87,4 +87,4 @@ C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ArchiverApp.Blazor.pdb
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ArchiverApp.Blazor.genruntimeconfig.cache
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ref\ArchiverApp.Blazor.dll
-C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\2yv333vixk-{0}-nf4fv9m2e0-nf4fv9m2e0.gz
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\2yv333vixk-{0}-7wb69u183m-7wb69u183m.gz

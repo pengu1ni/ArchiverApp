@@ -1,0 +1,63 @@
+@* Компонент toast-сповіщень про результат операції *@
+
+@if (_isVisible)
+{
+    <div class="toast toast-@_type">
+        <span>@_icon @_message</span>
+        <button class="toast-close" @onclick="Hide">✕</button>
+    </div>
+}
+
+@code {
+    private bool   _isVisible = false;
+    private string _message   = string.Empty;
+    private string _type      = "success";
+    private string _icon      = "✅";
+
+    // --- succes message ---
+    public async Task ShowSuccess(string message)
+    {
+        _type      = "success";
+        _icon      = "✅";
+        _message   = message;
+        _isVisible = true;
+        StateHasChanged();
+        await AutoHide();
+    }
+
+    // --- error message ---
+    public async Task ShowError(string message)
+    {
+        _type      = "error";
+        _icon      = "❌";
+        _message   = message;
+        _isVisible = true;
+        StateHasChanged();
+        await AutoHide();
+    }
+
+    // --- info message ---
+    public async Task ShowInfo(string message)
+    {
+        _type      = "info";
+        _icon      = "ℹ️";
+        _message   = message;
+        _isVisible = true;
+        StateHasChanged();
+        await AutoHide();
+    }
+
+    private void Hide()
+    {
+        _isVisible = false;
+        StateHasChanged();
+    }
+
+    // --- hide after 3 sec ---
+    private async Task AutoHide()
+    {
+        await Task.Delay(3000);
+        _isVisible = false;
+        StateHasChanged();
+    }
+}
