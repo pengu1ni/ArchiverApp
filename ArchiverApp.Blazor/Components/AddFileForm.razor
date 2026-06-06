@@ -48,7 +48,7 @@
 </div>
 
 @code {
-    private const int MaxNameLength = 50;
+    private const int MaxNameLength = 12;
     [Parameter] public bool IsProcessing { get; set; }
     [Parameter] public EventCallback<(string Name, string Ext, byte[] Content)> OnAdd { get; set; }
 

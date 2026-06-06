@@ -1,0 +1,73 @@
+@page "/about"
+@rendermode InteractiveServer
+
+<div class="archiver-container">
+    <div class="card">
+        <div class="card-title">Інформація про студента</div>
+
+        <div class="about-profile">
+
+            @* -- фото -- *@
+            <div class="about-avatar">
+                <img src="images/self_photo.jpg"
+                    alt="Фото студента"
+                    class="avatar-img"
+                    onerror="this.src=''" />
+                <div class="avatar-placeholder" id="avatar-placeholder">
+                    👤
+                </div>
+            </div>
+
+            @* -- таблиця даних -- *@
+            <table class="file-table" style="flex:1">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:600; width:200px">ПІБ</td>
+                        <td>Вітер Ростислав Русланович</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600">Група</td>
+                        <td>КС-24</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600">Спеціальність</td>
+                        <td>Інженерія програмного заюезпечення</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600">Навчальний заклад</td>
+                        <td>Черкаський національний університет ім. Богдана Хмельницького</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600">Керівник</td>
+                        <td>Бушин Ігор Миколайович</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600">Рік</td>
+                        <td>2026</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">📋 Про проєкт</div>
+        <p style="color:#444; line-height:1.7">
+            Даний проєкт є курсовою роботою з дисципліни
+            <strong>«Об'єктно-орієнтоване програмування»</strong>.
+        </p>
+        <p style="color:#444; line-height:1.7">
+            Програма імітує логіку архівації файлів та демонструє
+            три основні принципи ООП:
+        </p>
+        <ul style="color:#444; line-height:2">
+            <li><strong>Інкапсуляція</strong> — дані файлу та архіву захищені private-полями</li>
+            <li><strong>Наслідування</strong> — алгоритми стиснення наслідують спільний базовий клас</li>
+            <li><strong>Поліморфізм</strong> — архіватор працює з будь-яким алгоритмом через єдиний інтерфейс</li>
+        </ul>
+        <p style="color:#444; line-height:1.7">
+            <strong>Стек технологій:</strong> C# .NET 10, Blazor Server, Domain-Driven Design
+        </p>
+    </div>
+</div>

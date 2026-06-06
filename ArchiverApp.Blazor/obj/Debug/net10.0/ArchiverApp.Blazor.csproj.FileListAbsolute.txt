@@ -22,7 +22,6 @@ C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\bin\Debug\
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
-C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\scopedcss\bundle\ArchiverApp.Blazor.styles.css
@@ -74,8 +73,6 @@ C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\lebzg8t1na-{0}-abdmv1u4y3-abdmv1u4y3.gz
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\pv6m2naowq-{0}-ej96puwv3k-ej96puwv3k.gz
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\rux13bpo9s-{0}-cj5793hgrt-cj5793hgrt.gz
-C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\tzk8begekt-{0}-adyqbxzmo6-adyqbxzmo6.gz
-C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\62ccv8unho-{0}-adyqbxzmo6-adyqbxzmo6.gz
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\staticwebassets.development.json
@@ -87,4 +84,6 @@ C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ArchiverApp.Blazor.pdb
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ArchiverApp.Blazor.genruntimeconfig.cache
 C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\ref\ArchiverApp.Blazor.dll
-C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\2yv333vixk-{0}-7wb69u183m-7wb69u183m.gz
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\2yv333vixk-{0}-4y41cdxois-4y41cdxois.gz
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\tzk8begekt-{0}-3e007jc44i-3e007jc44i.gz
+C:\Users\Acer\Desktop\2 семестр\ArchiverApp\ArchiverApp.Blazor\obj\Debug\net10.0\compressed\62ccv8unho-{0}-3e007jc44i-3e007jc44i.gz

@@ -12,7 +12,7 @@ public class Archive
     private DateTime _createdAt;
     private DateTime? _lastModifiedAt;
     private const int MinNameLength = 2;
-    private const int MaxNameLength = 8;
+    private const int MaxNameLength = 20;
 
     // --- constructor ---
     public Archive(string name, CompressionType compressionType = CompressionType.Zip)

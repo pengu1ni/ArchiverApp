@@ -39,8 +39,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGaWxlVGFibGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/Error.razor]
@@ -53,10 +57,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/ProgressPanel.razor]
@@ -74,10 +74,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-v4bl14fuyf
 
 [C:/Users/Acer/Desktop/2 семестр/ArchiverApp/ArchiverApp.Blazor/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
